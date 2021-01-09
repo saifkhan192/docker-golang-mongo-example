@@ -1,0 +1,7 @@
+.env
+main
+*.log
+/app/__debug_bin
+/app/main
+/app/tmp
+sqlite.db

@@ -1,0 +1,18 @@
+version: '2'
+services:
+  backend-service:
+    image: docker-golang-mongo-example
+    container_name: golang-app
+    command: "fresh"
+    # entrypoint: dlv debug /app/main.go --listen=:40000 --headless=true --api-version=2 --log=true 
+    # entrypoint: dlv debug ./main.go --listen=:40000 --headless=true --api-version=2 --log=true 
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/go/src/app
+    ports:
+      - 3000:3000
+      - 40000:40000
+    environment:
+      PORT: 3000
